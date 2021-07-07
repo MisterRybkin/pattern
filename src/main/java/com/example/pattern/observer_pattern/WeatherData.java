@@ -39,5 +39,14 @@ public class WeatherData implements Subject {
         }
     }
 
+    public void measurementsChanged() { //оповещение наблюдателей об изменении (был в условии)
+        notifyObserver();
+    }
 
+    public void setMeasurements(float temp, float humidity, float pressure) {
+        this.temp = temp;
+        this.humidity = humidity;
+        this.pressure = pressure;
+        measurementsChanged();
+    }
 }
